@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/aws-test/Test" method="get">
+  <p>User name: <input type="text" id="uname" name="uname" onChange="userChange()"/></p>
+  <p> Password: <input type="password" id="upwd" name="upwd"/></p>
+  <p>User Type
+  <select id="utype" name="utype" onChange="userChange()">
+  <option value ="1">Operator</option>
+  <option value ="2">Administator</option>
+  <option value="3">Manager</option>
+</select>
+</p>
+ <p>User Desc: <input type="text" id="udesc" name="udesc" readonly='true'/></p>
+ <button type="submit" id="btnSubmit">Submit</button>
+ </form>
+ <script>
+function userChange()
+    {
+    
+        var nSel = document.getElementById("uname");
+     
+        var un=nSel.value;
+         
+        nSel = document.getElementById("utype");
+        var index = nSel.selectedIndex;  
+        var text = nSel.options[index].text; 
+        ///var value= nSel.options[index].value;
+		 document.getElementById("udesc").value='User:'+ un+ ' is a '+text;
+ 
+    }
+</script>
+ 
+</body>
+</html>
